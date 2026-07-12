@@ -1,11 +1,11 @@
 @echo off
-title ARP-SPOOFER - LTX & Moka
+title ARP-SPOOFER - LTX ^& Moka
 color 5
 cls
 
 echo.
 echo  ============================================
-echo       ARP-SPOOFER - LTX & Moka - Main Menu
+echo       ARP-SPOOFER - LTX ^& Moka - Main Menu
 echo  ============================================
 echo.
 echo   [1] Launch ARP Attack (auto-detect)
@@ -13,7 +13,8 @@ echo   [2] Scan network devices
 echo   [3] Scan WiFi networks
 echo   [4] Auto command generator
 echo   [5] Select adapter (-i) and attack
-echo   [6] Help
+echo   [6] Manual mode attack (--manual)
+echo   [7] Help
 echo   [0] Exit
 echo.
 
@@ -24,7 +25,8 @@ if "%choice%"=="2" goto scan
 if "%choice%"=="3" goto wifi
 if "%choice%"=="4" goto generator
 if "%choice%"=="5" goto iface
-if "%choice%"=="6" goto help
+if "%choice%"=="6" goto manual
+if "%choice%"=="7" goto help
 if "%choice%"=="0" exit /b 0
 goto invalid
 
@@ -58,6 +60,16 @@ exit /b 0
 echo.
 echo Select network adapter and launch attack...
 python arp_spoofer.py -i -a
+pause
+exit /b 0
+
+:manual
+echo.
+set /p NET_RANGE="Network range (e.g. 192.168.1.0/24): "
+set /p GATEWAY="Gateway IP (e.g. 192.168.1.1): "
+echo.
+echo Launching manual attack...
+python arp_spoofer.py --manual -r %NET_RANGE% -g %GATEWAY% -i -a
 pause
 exit /b 0
 
