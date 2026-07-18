@@ -304,8 +304,8 @@ If a fatal error occurs, the script catches it, logs the traceback, and prompts:
 | Task | Interval | Description |
 |------|----------|-------------|
 | Watchdog | 30s | Checks gateway, internet, triggers recovery |
-| Target refresh | 5 min | Detects new devices (auto-attack mode) |
-| MAC refresh | 3 min | Re-resolves ARP for all targets |
+| Target refresh | 1 min | Detects new devices (auto-attack mode) |
+| MAC refresh | 1.15 min | Re-resolves ARP for all targets |
 | Spoof failure recovery | Per cycle | Re-fetches MAC after 5 consecutive failures |
 
 ---
