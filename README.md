@@ -582,38 +582,6 @@ arp_spoofer.py
 
 ---
 
-## Project Files
-
-| File | Description |
-|------|-------------|
-| `arp_spoofer.py` | Main script |
-| `auto_generate.py` | Interactive command builder wizard with color-coded prompts |
-| `common.py` | Shared helpers for Linux venv management (Linux) |
-| `setup.py` | Dependency installer and venv creator (Linux) |
-| `setup.bat` | Dependency and Npcap installer (Windows) |
-| `requirements.txt` | Python dependencies |
-| `logs/` | Session log directory (created at runtime) |
-
----
-
-## Troubleshooting
-
-| Problem | Solution |
-|---------|----------|
-| Wrong gateway / subnet detected | Use `-i` to select the correct adapter, or `--manual -r -g` |
-| ARP spoofing not working | Run as Administrator (Windows) or with `sudo` (Linux) |
-| No packets captured (Windows) | Install Npcap with "WinPcap API-compatible Mode" |
-| WiFi scan returns nothing (Windows) | Enable Location Services in Windows Privacy settings |
-| WiFi scan returns nothing (Linux) | Ensure `nmcli` is installed and run with `sudo`. |
-| `L2socket` error on Linux | Re-run `setup.py` to ensure `scapy` is fully installed in the venv. |
-| Empty DNS logs | Only valid DNS queries are logged (fixed in latest version) |
-| UAC prompt denied | Right-click terminal → Run as administrator |
-| Virtual adapter selected | Use `-i` to manually pick WiFi or Ethernet |
-| High CPU usage during attack | Ensure L2Socket is initialized (check logs for "L2 raw socket opened") |
-| `setup.py` fails on Linux | Run `python3 setup.py --force` to wipe and recreate the venv |
-
----
-
 ## Authors
 
 **LTX & Moka**
